@@ -1,0 +1,21 @@
+
+# Java
+.class
+
+
+# Gradle 
+## Ignore wrapper generated files
+.gradle
+build/*
+
+
+# IDEA
+## Ignore iml files
+.iml
+
+## Ignore generall idea project
+.idea
+
+
+# Eclipse
+## Extend if needed
