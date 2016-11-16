@@ -1,14 +1,9 @@
 
-
-apply plugin: "java"
-apply plugin: "idea"
-apply plugin: "eclipse"
-
 println "it works"
 
 
 // define wrapper version to 3.X
 task wrapper(type: Wrapper) {
-	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '3.1'
+  description = 'Generates gradlew[.bat] scripts'
+  gradleVersion = '3.1'
 }

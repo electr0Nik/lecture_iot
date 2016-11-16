@@ -1,0 +1,68 @@
+<!--
+  Generated template for the MainOverview page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Daylight Buzzer Main</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Daylight Buzzer!</h3>
+  <div>
+    <!-- beautify table with css, since it's very very ugly without it -->
+    <table>
+      <thead>
+        <td>Active</td>
+        <td>Time</td>
+        <td>Name</td>
+        <td>Funktion</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alarm of alarms" (click)="navigateToAddCreateView($event, alarm)">
+          <input type="hidden" value="{{alarm.id}} - {{alarm.uuid}}"/>
+          <td>
+            <button ion-button icon-only *ngIf="alarm.active" (click)="updateAlarmState(false); $event.stopPropagation()">
+                <ion-icon name="notifications"></ion-icon>
+            </button>
+            <button ion-button icon-only *ngIf="!alarm.active" (click)="updateAlarmState(false); $event.stopPropagation()">
+                <ion-icon name="notifications-off"></ion-icon>
+            </button>
+          </td>
+          <td>on {{alarm.time}} every {{alarm.days}}</td>
+          <td>{{alarm.name}}</td>
+          <td>
+            <button ion-button icon-only (click)="navigateToAddCreateView($event, alarm); $event.stopPropagation()">
+                <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="deleteAlarm(alarm); $event.stopPropagation()">
+                <ion-icon name="trash"></ion-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+        <p>
+            Hier könnnte Ihre Werbung stehen.
+        </p>
+    </div>
+    <div>
+        <button ion-button icon-left (click)="navigateToAddCreateView($event)">
+            <ion-icon name="add-circle"></ion-icon>
+            Add / Create
+        </button>
+        <button ion-button icon-left (click)="navigateToAdminView($event)">
+            <ion-icon name="game-controller-a"></ion-icon>
+            Admin View
+        </button>
+    </div>
+  </div>
+</ion-content>
