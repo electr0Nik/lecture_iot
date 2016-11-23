@@ -5,20 +5,20 @@ Ziel war es eine App zu schreiben, die das Ionic Framework zur Generierung der A
 ## Technology
 Für die Entwicklung hat man sich auf folgenden Technologien verständigt.
 * FrontEnd
-1. [Ionic Framework V2](https://ionicframework.com/docs/v2/getting-started/)
-2. [Apache Cordova](https://cordova.apache.org/)
-3. [Angular 2](https://angular.io/)
-4. [TypeScript](http://www.typescriptlang.org/)
+  1. [Ionic Framework V2](https://ionicframework.com/docs/v2/getting-started/)
+  2. [Apache Cordova](https://cordova.apache.org/)
+  3. [Angular 2](https://angular.io/)
+  4. [TypeScript](http://www.typescriptlang.org/)
 
 Während das Ionic Framework eine Vorgabe des Dozenten war, sind Apache Cordova, Angular und TypeScript von Ionic geforderte Abhängigkeiten.
 Angular 2, ist eine umfangreiches Komponentne basiertes Frontend Framework, das von Google entwicklet wird.
 TypeScript ist ein von Microsoft entwickelte JavaScript Obermenge, die typisierte JavaScript Entwicklung ermöglicht.
 
 * Backend
-1. [Node.js](https://nodejs.org)
-2. [Express](http://expressjs.com/de/)
-3. [IBM Bluemix](https://console.ng.bluemix.net/catalog/starters/sdk-for-nodejs/)
-4. [Lightify Home API - EU](https://eu.lightify-api.org/)
+  1. [Node.js](https://nodejs.org)
+  2. [Express](http://expressjs.com/de/)
+  3. [IBM Bluemix](https://console.ng.bluemix.net/catalog/starters/sdk-for-nodejs/)
+  4. [Lightify Home API - EU](https://eu.lightify-api.org/)
 
 Im Backend muss IBM Bluemix als Cloud Server verwendet werden. Die Backend Sprache ist frei wählbar. Wir haben uns für Node.js entschieden, weil: 
 1. Docker Container mit Spring Boot als nicht starten wollte und IBM Bluemix den Zugriff auf Logs verhindert, so dass es nicht Möglichwar nachzuvollziehen, warum der Start des Containers schief läuft
