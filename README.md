@@ -34,7 +34,7 @@ Nachfolgend werden der Übersichtshalber die folgenden Themen separat behandelt:
 
 ## Description
 Für weitere Informationen über die Archtitektur klicken Sie bitte ![hier.](docs/DESCRIPTION.md "Diagramme")<br/>
-Für eine grobe Übersicht und Beschreibung der App klicken Sie bitte ![hier.]()<br/>
+Für eine grobe Übersicht und Beschreibung der App klicken Sie bitte ![hier.](docs/FRONTEND_README.md "Diagramme")<br/>
 
 
 ## API

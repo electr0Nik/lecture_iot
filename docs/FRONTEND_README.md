@@ -15,7 +15,7 @@ Nachfolgend werden die Seiten und grob die einzelnen Funktionen erläutert. Sofe
 
 ## Alarmübersicht
 ![Alarmübersicht](images/app/app_overview.png "Alarmübersicht")
-Bei der Alarmübersicht werden alle vorhandenen Alarme mit Startuhrzeit, Name und Tagen an dem der Alarm aktiv ist angezeigt. <br/>
+<br/>Bei der Alarmübersicht werden alle vorhandenen Alarme mit Startuhrzeit, Name und Tagen an dem der Alarm aktiv ist angezeigt. <br/>
 
 <i>Info</i>
 > Im Prototypen werden die Alarme aus einem Mock-Service geladen und haben stehts die selben Werte, das heißt bei einem Neustart würden neu hinzugefügte Werte und gelöschte Werte überschrieben und der Ursprungszustand wiederherrgestellt. In zukünftigen Versionen wird der Mock-Service durch einen echten Service ausgetauscht und die Daten sollen aus dem lokalen Speicher oder vom Backend bezogen werden.
