@@ -8,6 +8,7 @@ Der Aufbau des Backends wird in den folgenden Seiten beschrieben:
 1. Architektur
 2. Aufbau des Filesystems (Datenbank)
 3. Aktivitätsdiagramm Login
+4. Aufbau der CloudFoundry App
 
 ## Architektur
 Insgesamt besteht das gesamte System aus drei Komponenten.
@@ -61,3 +62,8 @@ Der User gibt seine Anmeldedaten (Email und Passwort) in der App ein.
 Diese werden über das Backend (REST Funktion /login) an das Filesystem (DB) gesendet.
 Nach einem erfolgreichem Abgleich wird die Uuid an die App zurückgesendet.
 Der User erhält den "Login erfolgreich" Bildschirm und kann auf die App zugreifen.
+
+## Aufbau der CloudFoundry App
+Die notwendigen Dateien der App befinden sich im Ordner <i>libs</i>.
+Dieser ist aufgeteilt in den Ordner <i>files</i>, welche das Filesystem darstellen und
+den Ordner <i>services</i>, welche alle angeboteten Services beinhaltet.
