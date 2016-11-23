@@ -15,7 +15,7 @@ app.get(groupURL, function (req, res) {
         url: baseURL + groupURL,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '163782-QbW0IB40qFT87P9MCvko'
+            'Authorization': '163782-wE9u0flYvTWHyTmTreQ4'
         }
     };
 
@@ -41,7 +41,7 @@ app.get(groupSetURL + '/:groupNumber', function (req, res) {
         url: baseURL + '/group/set?idx=' + groupNumber + '&onoff=0',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '163782-QbW0IB40qFT87P9MCvko'
+            'Authorization': '163782-wE9u0flYvTWHyTmTreQ4'
         }
     };
 
@@ -49,7 +49,7 @@ app.get(groupSetURL + '/:groupNumber', function (req, res) {
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             console.log(info);
-            res.json(body)
+            res.json(body);
             res.end();
         }
         res.json('Status: FAIL');

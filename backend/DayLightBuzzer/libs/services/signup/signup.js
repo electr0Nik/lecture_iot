@@ -29,7 +29,7 @@ app.get('/signUpOld', function (req, res) {
     console.log("User exists JSON?:" + JSON.stringify(user));
     console.log("User exists?:" + user);
 
-    if (Object.keys(user).length > 2) {
+    if(Object.keys(user).length > 2) {
         console.log("User: " + user);
     } else {
         console.log("Empty user: " + user);
@@ -52,11 +52,11 @@ function userExists(path, uid, email) {
     var result;
     for (var i in content) {
         if ((content[i].uid == uid) && (content[i].email == email)) {
-            result = content[i];
+            result = JSON.stringify(content[i]);
             break;
         }
     }
-    if (result === undefined || result === null) {
+    if(result === undefined || result === null) {
         result = JSON.stringify({});
     }
 
@@ -69,7 +69,7 @@ function userExists(path, uid, email) {
 function addUserToFile(path, uid, name, email, password) {
     var findUser = userExists(path, uid, email);
 
-    if (findUser === "{}") {
+    if(findUser === "{}") {
         var content = JSON.parse(fs.readFileSync(path).toString());
         content.push({uid: uid, name: name, email: email, password: password});
         var newContent = JSON.stringify(content);

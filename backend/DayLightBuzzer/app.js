@@ -20,13 +20,15 @@ var app = express();
 
 //define modules with services
 var login = require('./libs/services/login/login');
-var signUp = require('./libs/services/signup/signup');
+var signUp = require('./libs/services/signup/signUp');
 var group = require('./libs/services/group/group');
+var authorization = require('./libs/services/authorization/authorization');
 
 // use the defined modules
 app.use(login);
 app.use(signUp);
 app.use(group);
+app.use(authorization);
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
