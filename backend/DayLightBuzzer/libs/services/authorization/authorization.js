@@ -21,29 +21,34 @@ app.get('/auth', function (req, res) {
 
     var name = findUser.name;
     var password = findUser.password;
-    console.log("Name: " + name + " Type: " + typeof name);
-    console.log("Password: " + password);
 
     var options = {
-        'body': {
-            'username':'name',
-            'password':'passwort',
+        url: 'https://eu.lightify-api.org/lightify/services/session',
+        method: 'Post',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': '163782-wE9u0flYvTWHyTmTreQ4'
+        },
+        json: {
+            'username': name,
+            'password': password,
             'serialNumber':'OSR017B305B'
         }
     };
 
     function callback(error, response, body) {
-        console.log("Error: " + error);
         if (!error && response.statusCode == 200) {
-            var info = JSON.parse(body);
-            console.log(info);
-            res.json(body);
+            console.log("Res: " + body);
+            console.log("Res as String:" + JSON.stringify(body));
+            res.write(JSON.stringify(body));
+            res.end();
+        } else {
+            res.json('Status: FAIL');
+            res.end();
         }
-        res.json('Status: FAIL');
-        res.end();
     }
 
-    request('https://eu.lightify-api.org/lightify/services/session', options, callback);
+    request(options, callback);
 });
 
 //Check if user exists
