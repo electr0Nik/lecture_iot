@@ -1,4 +1,9 @@
 # Description
+TODO
+
+## Business Model Canvas
+
+Business Model Canvas: ![Business Model Canvas - Daylight Buzzer](images/DaylightBuzzer_BusinessModelCanvas.png "Business Model Canvas - Daylight Buzzer")
 
 
 ## Architecture
