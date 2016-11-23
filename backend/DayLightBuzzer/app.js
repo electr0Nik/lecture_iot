@@ -39,5 +39,5 @@ app.listen(appEnv.port, '0.0.0.0', function () {
 
 app.get('/hello', function (req, res) {
     console.log("It works!");
-    res.send("Hello World!")
+    res.send("Hello World!");
 });
