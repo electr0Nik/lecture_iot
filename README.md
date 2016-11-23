@@ -29,12 +29,13 @@ Das Cloud Foundry Beispiel für Node.js hatte als Abhängigkeit Express, womit d
 
 Nachfolgend werden der Übersichtshalber die folgenden Themen separat behandelt:
 * Architekturdiagramm, Entity-Model und Aktivitäten/Sequenzdiagramm
-* API mit Übersicht der gültigen ULS und Parametern
+* API mit Übersicht der gültigen URLs und Parametern
 * Allgemeine README's der zugrunde liegenden Frameworks
 
 ## Description
 Für weitere Informationen über die Archtitektur klicken Sie bitte ![hier.](docs/DESCRIPTION.md "Diagramme")<br/>
-Für eine grobe Übersicht und Beschreibung der App klicken Sie bitte ![hier.](docs/FRONTEND_README.md "Diagramme")<br/>
+Für eine grobe Übersicht und Beschreibung der App klicken Sie bitte ![hier.](docs/FRONTEND_README.md "App Description")<br/>
+Für eine grobe Übersicht und Beschreibung des Backends klicken Sie bitte ![hier.](docs/BACKEND_README.md "Diagramme")<br/>
 
 
 ## API
