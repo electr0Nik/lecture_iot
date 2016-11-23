@@ -11,3 +11,23 @@ Simple IOT Project with Ionic, Gradle and Java
 ## Description
 
 [Read more...](docs/DESCRIPTION.md)
+
+
+## API
+
+[Read more...](docs/API.md)
+
+
+## Frontend Readme
+
+[Read more...](frontend/DaylightBuzzer/hooks/README.md)
+
+
+## Backend Readme
+
+Backend [Read more...](backend/DayLightBuzzer/README.md)
+
+
+## ChangeLog
+
+Backend [Read more...](backend/DayLightBuzzer/CHANGELOG.md)
