@@ -28,10 +28,12 @@ export class ApiService {
   triggerLightify(alarm: Alarm) {
     let headers = new Headers();
 
-    let lightifyParams = "lightIntensity=" + alarm.lightIntensity + 
-    "&lightUpInterval=" + alarm.lightUpInterval + 
-    'maxLightOpacity=' + alarm.maxLightOpacity + 
-    'uuid' + alarm.uuid.toString;
+    let lightifyParams = 'color=' + 'ffffff' + 
+    "&maxLight=" + alarm.lightIntensity + 
+    "&intervall=" + alarm.lightUpInterval + 
+    '&maxOpacity=' + alarm.maxLightOpacity + 
+//    '&deviceUuid' + alarm.uuid.toString;
+    '&deviceUuid' + 'niks_device';
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     return new Promise(resolve => {

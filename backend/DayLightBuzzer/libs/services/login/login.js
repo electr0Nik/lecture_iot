@@ -85,7 +85,7 @@ app.post(triggerRoute, function (req, res) {
     let deviceUuid =  req.body.deviceUuid;
     console.log('c: ' + color + ' i : ' + intervall + ' : ' + 'm:' + maxLight + ' : d: ' + deviceUuid);
 
-    if (deviceUuid !== '') {
+    if (deviceUuid !== 'niks_device') {
         return res.status(403).send({
             success: false,
             msg: 'Authenticaton failed, device not registered.'
