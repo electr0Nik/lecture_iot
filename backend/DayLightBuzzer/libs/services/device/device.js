@@ -31,3 +31,18 @@ app.get('/device', function(req, res) {
 
     request(options, callback);
 });
+
+app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
+    var state = req.params.state;
+    var color = req.params.color;
+    var interval = req.params.interval;
+    var maxLight = req.params.maxLight;
+
+
+    console.log(state);
+    console.log(color);
+    console.log(interval);
+    console.log(maxLight);
+
+    res.end();
+});
