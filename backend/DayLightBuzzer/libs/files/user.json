@@ -1,18 +1,18 @@
 [
   {
-    "uid": 1,
+    "uid": "1",
     "name": "Nik",
     "email": "nik@mail.com",
     "password": "1234"
   },
   {
-    "uid": 2,
-    "name": "Awraam",
-    "email": "greeko@mail.com",
-    "password": "5678"
+    "uid": "2",
+    "name": "greece_awraam@web.de",
+    "email": "greece_awraam@web.de",
+    "password": "L98n0kiaa26Y"
   },
   {
-    "uid": 3,
+    "uid": "3",
     "name": "Eugen",
     "email": "Eugen@mail.com",
     "password": "1357"
