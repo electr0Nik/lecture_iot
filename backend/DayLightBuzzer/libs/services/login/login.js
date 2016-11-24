@@ -61,3 +61,40 @@ app.post('/authenticate', function (req, res) {
         });
     }
 });
+
+
+/**
+ * trigger lightify
+ */
+var triggerRoute = '/triggerLightify';
+app.post(triggerRoute, function (req, res) {
+
+    /**
+     * set header to allow CORS
+     */
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+    /**
+     * lightify params
+     */
+    let color =  req.body.color;
+    let intervall =  req.body.intervall;
+    let maxLight =  req.body.maxLight;
+    let maxOpacity =  req.body.maxOpacity;
+    let deviceUuid =  req.body.deviceUuid;
+    console.log('c: ' + color + ' i : ' + intervall + ' : ' + 'm:' + maxLight + ' : d: ' + deviceUuid);
+
+    if (deviceUuid !== '') {
+        return res.status(403).send({
+            success: false,
+            msg: 'Authenticaton failed, device not registered.'
+        });
+    } else {
+        var token = '02ed6cc2-779e-4787-9a55-3c872875eaf4'
+        res.json({
+            success: true,
+            token: token
+        });
+    }
+});

@@ -62,7 +62,7 @@
             Admin View
         </button>
     </div>
-    <div>
+    <div *ngIf="isLoggedIn">
       <h2>Sie sind eingelogged!</h2>
       <button ion-button (click)="logout()">
         Logout!!

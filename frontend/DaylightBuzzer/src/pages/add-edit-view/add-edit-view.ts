@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {  MediaPlugin } from 'ionic-native';
+
 
 
 // class
@@ -8,6 +10,7 @@ import { AlarmForm } from './form/alarm.form'
 
 // service
 import { AlarmOverviewService } from '../../providers/alarm.overview.service';
+import { ApiService } from '../../providers/api.service';
 
 // components
 import { MainOverviewPage } from '../main-overview/main-overview'
@@ -30,7 +33,7 @@ export class AddEditViewPage {
   showSuccessMessage: boolean = false;
   form: AlarmForm = new AlarmForm();
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private service: AlarmOverviewService) {
+  constructor(private navCtrl: NavController, private navParams: NavParams, private service: AlarmOverviewService, private apiService: ApiService) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedAlarm = navParams.get('selectedAlarm');
     this.isEditAlarm = this.selectedAlarm !== null;
@@ -57,6 +60,27 @@ export class AddEditViewPage {
 
   goBack(event): void {
     this.navCtrl.push(MainOverviewPage);
+  }
+
+  /**
+   * trigger lightify and switch bulb on and off
+   * trigger lightify only if expected device Uuid is present
+   */
+  triggerLightify(): void{
+    // debug log
+    console.log(`${this.selectedAlarm.uuid} : ${this.selectedAlarm.lightIntensity} : ${this.selectedAlarm.lightUpInterval}`);
+    this.apiService.triggerLightify(this.selectedAlarm);
+
+
+    // play sound
+    this.audioplay();
+  }
+
+  private   audioplay() {
+    let pathalone = 'storage/emulated/0/Music/bizarre-guitar-daniel_simon.mp3';
+
+    let file = new MediaPlugin(pathalone, (status) => { });
+    file.play();
   }
 
   /**

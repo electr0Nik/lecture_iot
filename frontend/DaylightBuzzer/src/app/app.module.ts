@@ -14,6 +14,7 @@ import { RegisterViewPage } from '../pages/register-view/register-view';
 import { AlarmOverviewService } from '../providers/alarm.overview.service'
 import { AlarmOverviewServiceMocks } from '../providers/mocks/alarm.overview.service.mocks'
 import { AuthService } from '../providers/auth.service'
+import { ApiService } from '../providers/api.service'
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AuthService } from '../providers/auth.service'
       // useFactory: (USE_MOCKS, http) => USE_MOCKS ? new AlarmOverviewServiceMocks() : new AlarmOverviewService(http),
       // deps: ['USE_MOCKS', Http]
     },
-    AuthService
+    AuthService,
+    ApiService
   ]
 })
 export class AppModule { }

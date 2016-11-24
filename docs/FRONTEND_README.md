@@ -3,6 +3,13 @@ Es wird dringend davon abgeraten diese App in diesem Zustand irgendwo produktiv 
 Sowohl die Security Implementierungen, als auch die Tests und entsprechend die Testabdeckujng sind nicht oder nur marginal vorhanden.<br/><br/>
 Verwendung auf eigene Gefahr!
 
+# Verwendete Plugins
+1. ionic plugin add http://github.com/don/cordova-filechooser.git
+2. ionic plugin add cordova-plugin-media
+3. ionic plugin add cordova-plugin-filepath
+4. ionic plugin add cordova-plugin-device
+
+
 # Daylight Buzzer App - Prototyp
 Die Daylight Buzzer App ist im Grunde ein Wecker und besteht aus den folgenden 4 Seiten:
 1. Alarmübersicht

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+
 // custom pages
 import { AddEditViewPage } from '../add-edit-view/add-edit-view';
 import { AdminOverviewPage } from '../admin-overview/admin-overview';
@@ -24,9 +25,14 @@ import { AuthService } from "../../providers/auth.service";
 })
 export class MainOverviewPage {
   alarms: Array<Alarm>;
+  nativePath: string = 'Music/bizarre-guitar-daniel_simon.mp3';
+  file;
+  isLoggedIn: boolean = false;
 
   constructor(private navCtrl: NavController, private alarmOverviewService: AlarmOverviewService, private authService: AuthService) {
+    this.isLoggedIn = this.authService.isLoggedIn;
   }
+
 
   ionViewDidLoad() {
     console.log('Hello MainOverviewPage Page');
@@ -60,6 +66,7 @@ export class MainOverviewPage {
   // simple logout call
   logout() {
     this.authService.logout();
+    this.isLoggedIn = false;
   }
 
   // navigation
