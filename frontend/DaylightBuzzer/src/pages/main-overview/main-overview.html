@@ -29,10 +29,10 @@
         <tr *ngFor="let alarm of alarms" (click)="navigateToAddCreateView($event, alarm)">
           <input type="hidden" value="{{alarm.id}} - {{alarm.uuid}}"/>
           <td>
-            <button ion-button icon-only *ngIf="alarm.active" (click)="updateAlarmState(false); $event.stopPropagation()">
+            <button ion-button icon-only *ngIf="alarm.active" (click)="updateAlarmState(alarm); $event.stopPropagation()">
                 <ion-icon name="notifications"></ion-icon>
             </button>
-            <button ion-button icon-only *ngIf="!alarm.active" (click)="updateAlarmState(false); $event.stopPropagation()">
+            <button ion-button icon-only *ngIf="!alarm.active" (click)="updateAlarmState(alarm); $event.stopPropagation()">
                 <ion-icon name="notifications-off"></ion-icon>
             </button>
           </td>

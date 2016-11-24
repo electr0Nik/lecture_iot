@@ -2,8 +2,15 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 
-// custom class
+// class
 import { Alarm } from '../../classes/alarm.class';
+import { AlarmForm } from './form/alarm.form'
+
+// service
+import { AlarmOverviewService } from '../../providers/alarm.overview.service';
+
+// components
+import { MainOverviewPage } from '../main-overview/main-overview'
 
 /*
   Generated class for the AddEditView page.
@@ -20,17 +27,56 @@ export class AddEditViewPage {
   selectedAlarm: Alarm;
   isEditAlarm: boolean;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  showSuccessMessage: boolean = false;
+  form: AlarmForm = new AlarmForm();
+
+  constructor(private navCtrl: NavController, private navParams: NavParams, private service: AlarmOverviewService) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedAlarm = navParams.get('selectedAlarm');
     this.isEditAlarm = this.selectedAlarm !== null;
+    if (this.isEditAlarm) {
+      this.form = this.getMappedFormFromAlarm(this.selectedAlarm);
+    }
   }
 
   ionViewDidLoad() {
     console.log('Hello AddEditViewPage Page');
+    this.showSuccessMessage = false;
   }
 
-  goBack() {
-    this.navCtrl.pop();
+  submitFormm(): void {
+    let alarm: Alarm = this.getMappedAlarmFromForm(this.form, !this.isEditAlarm);
+
+    if (this.isEditAlarm) {
+      this.service.updateAlarm(alarm);
+    } else {
+      this.service.saveAlarm(alarm);
+    }
+    this.showSuccessMessage = true;
+  }
+
+  goBack(event): void {
+    this.navCtrl.push(MainOverviewPage);
+  }
+
+  /**
+   * map from form object to 'entity' object for insert;
+   * usuall you want to write an extra mapping service for this kind of operation
+   * but since we only prototype, and it's easier to understand what happens, 
+   * we keep the mapping here
+   */
+  private getMappedAlarmFromForm(form: AlarmForm, isNew: boolean): Alarm {
+    let count: number = isNew ? this.service.getAlarms().length + 1 : form.id;
+    return new Alarm(count, form.name, form.time, form.days, form.maxVolume, form.lightUpInterval, form.lightIntensity, form.maxLightOpacity);
+  }
+
+  /**
+   * map from 'entity' to form object for insert;
+   * usuall you want to write an extra mapping service for this kind of operation
+   * but since we only prototype, and it's easier to understand what happens, 
+   * we keep the mapping here
+   */
+  private getMappedFormFromAlarm(alarm: Alarm): AlarmForm {
+    return new AlarmForm(alarm.id, alarm.name, alarm.time, alarm.days, alarm.maxVolume, alarm.lightUpInterval, alarm.lightIntensity, alarm.maxLightOpacity);
   }
 }

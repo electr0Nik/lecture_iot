@@ -1,7 +1,7 @@
 
 
 import { Alarm } from '../../classes/alarm.class'
-import {CustomUUID} from '../../classes/custom.uuid.class';
+import { CustomUUID } from '../../classes/custom.uuid.class';
 
 
 // use mocks services, since we have no database set up yet!
@@ -79,7 +79,12 @@ export class AlarmOverviewServiceMocks {
 
     // create
     saveAlarm(alarm: Alarm): void {
+        // log - debug only
+        // console.log(`${alarm.id} : ${alarm.name} : ${alarm.days} : ${alarm.time}`)
         this.alarms.push(alarm);
+
+        //log - debug only
+        // this.alarms.forEach(it => console.log(`${it.id} : ${it.name} : ${it.days} : ${it.time}`))
     }
 
     // read
@@ -89,11 +94,17 @@ export class AlarmOverviewServiceMocks {
 
     // update
     updateAlarm(alarm: Alarm): void {
-        for(let a of this.alarms){
-            if (a.id === alarm.id){
-                a = alarm;
+        let index: number = 0;
+        for (let i = 0; i < this.alarms.length; i++) {
+            if (this.alarms[i].id === alarm.id) {
+                index = i;
             }
         }
+        // override value on index
+        this.alarms[index] = alarm;
+
+        // log - debug only
+        // this.alarms.forEach(it => console.log(`${it.id} : ${it.name} : ${it.days} : ${it.time}`))
     }
 
     // delete

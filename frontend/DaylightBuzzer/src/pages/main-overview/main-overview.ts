@@ -22,25 +22,38 @@ import { AlarmOverviewService } from "../../providers/alarm.overview.service";
   templateUrl: 'main-overview.html'
 })
 export class MainOverviewPage {
-  constructor(private navCtrl: NavController, private alarmOverviewService: AlarmOverviewService) {
-    this.getAlarmOverviewList();
-  }
-
   alarms: Array<Alarm>;
 
+  constructor(private navCtrl: NavController, private alarmOverviewService: AlarmOverviewService) {
+  }
 
   ionViewDidLoad() {
     console.log('Hello MainOverviewPage Page');
+    this.getAlarmOverviewList();
   }
 
+  /**
+   * get all alarms 
+   */
   getAlarmOverviewList(): void {
     this.alarms = this.alarmOverviewService.getAlarms();
   }
 
+  /**
+   * delete whole alarm
+   */
   deleteAlarm(alarm: Alarm): void {
-    console.log(alarm);
     this.alarmOverviewService.deleteAlarm(alarm);
     this.alarms = this.alarms.filter(a => a !== alarm);
+  }
+
+
+  /**
+   * alternate alarm state
+   */
+  updateAlarmState(alarm: Alarm): void {
+    alarm.active = !alarm.active
+    this.alarmOverviewService.updateAlarm(alarm);
   }
 
 
