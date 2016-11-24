@@ -1,5 +1,7 @@
 # Warnung
-Es wird dringend davon abgeraten diese App in diesem Zustand irgendwo produktiv zu verwenden!
+Es wird dringend davon abgeraten diese App in diesem Zustand irgendwo produktiv zu verwenden!<br/>
+Sowohl die Security Implementierungen, als auch die Tests und entsprechend die Testabdeckujng sind nicht oder nur marginal vorhanden.<br/><br/>
+Verwendung auf eigene Gefahr!
 
 # Daylight Buzzer App - Prototyp
 Die Daylight Buzzer App ist im Grunde ein Wecker und besteht aus den folgenden 4 Seiten:
@@ -24,6 +26,7 @@ Durch den Alarm Button an der Spalte _Active_ kann man einen Alarm de- und aktiv
 Die Buttons *Add/Create* und *Edit* führen zur Seite auf der ein Alarm bearbeitet oder erstellt werden kann.
 
 ## Alarm anlegen / editieren
+
 
 ## Aministration
 Die Administrationsseite erfordert einen angemeldeten Benutzer. Wenn die Seite von einem Nicht angemeldente Benutzer aufgerufen wird, werden eine Login und ein Registrierung Button angezeigt.

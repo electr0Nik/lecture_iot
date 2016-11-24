@@ -9,6 +9,7 @@ Für die Entwicklung hat man sich auf folgenden Technologien verständigt.
   2. [Apache Cordova](https://cordova.apache.org/)
   3. [Angular 2](https://angular.io/)
   4. [TypeScript](http://www.typescriptlang.org/)
+  5. [Sass/Scss](http://sass-lang.com/) für das Styling
 
 Während das Ionic Framework eine Vorgabe des Dozenten war, sind Apache Cordova, Angular und TypeScript von Ionic geforderte Abhängigkeiten.
 Angular 2, ist eine umfangreiches Komponentne basiertes Frontend Framework, das von Google entwicklet wird.
@@ -45,6 +46,6 @@ Für Beschreibung und Beispiele der API klicken Sie bitte ![hier.](docs/API.md)
 ## Ionic - Cordova Hooks Readme
 [Read more...](frontend/DaylightBuzzer/hooks/README.md)
 
-## NodeJS Readme and Changelog
+## Node.js Readme and Changelog
 [Read more...](backend/DayLightBuzzer/README.md)
 [Read more...](backend/DayLightBuzzer/CHANGELOG.md)

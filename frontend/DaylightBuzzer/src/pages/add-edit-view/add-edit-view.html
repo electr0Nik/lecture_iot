@@ -15,14 +15,52 @@
 
 
 <ion-content padding>
-  <div *ngIf="selectedAlarm !== null">
-    {{selectedAlarm.active}} {{selectedAlarm.time}} {{selectedAlarm.days}}
+  <div *ngIf="showSuccessMessage">
+    <div *ngIf="isEditAlarm">
+      <h3>Alarm erfolgreich aktualisiert!</h3>
+    </div>
+    <div *ngIf="!isEditAlarm">
+      <h3>Alarm erfolgreich angelegt!</h3>
+    </div>
   </div>
-
-  <div>
+  <div *ngIf="!showSuccessMessage">
     <h3 *ngIf="isEditAlarm">Alarm bearbeiten</h3>
     <h3 *ngIf="!isEditAlarm">Neuen Alarm erstellen</h3>
-    <form>
+
+    <form #tmpForm="ngForm" (ngSubmit)="submitFormm()" novalidate>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="form.name" ngControl="name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Alarm Time</ion-label>
+        <ion-input type="text" [(ngModel)]="form.time" ngControl="time" name="time" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Alarm Days</ion-label>
+        <ion-input type="text" [(ngModel)]="form.days" ngControl="days" name="days" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Alarm maxVolume</ion-label>
+        <ion-input type="text" [(ngModel)]="form.maxVolume" ngControl="maxVolume" name="maxVolume"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Alarm lightUpInterval</ion-label>
+        <ion-input type="text" [(ngModel)]="form.lightUpInterval" ngControl="lightUpInterval" name="lightUpInterval"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Alarm lightIntensity</ion-label>
+        <ion-input type="text" [(ngModel)]="form.lightIntensity" ngControl="lightIntensity" name="lightIntensity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Alarm maxLightOpacity</ion-label>
+        <ion-input type="text" [(ngModel)]="form.maxLightOpacity" ngControl="maxLightOpacity" name="maxLightOpacity"></ion-input>
+      </ion-item>
+
+      <button ion-button type="submit" [disabled]="!tmpForm.valid">Submit</button>
     </form>
   </div>
 
