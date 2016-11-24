@@ -33,15 +33,25 @@ Durch den Alarm Button an der Spalte _Active_ kann man einen Alarm de- und aktiv
 Die Buttons *Add/Create* und *Edit* führen zur Seite auf der ein Alarm bearbeitet oder erstellt werden kann.
 
 ## Alarm anlegen / editieren
+Man kann einen neuen alarm mit bestimmten Einstellungen anlegen, darunter:
+1. Name
+2. Weckzeit
+3. Tage an denen der Alarm getriggert werden soll
+4. Maximale Lautstärke des Weckers
+5. Lightify Einstellungen
 
+Da es sich um einen Prototypen handelt wird auf Validierung und Verwendung von Options-Feldern verzichtet.
+
+Zusätzlich besteht die Möglichkeit den Alarm zu triggern, damit man ein Beispiel eines Alarms hat.
 
 ## Aministration
 Die Administrationsseite erfordert einen angemeldeten Benutzer. Wenn die Seite von einem Nicht angemeldente Benutzer aufgerufen wird, werden eine Login und ein Registrierung Button angezeigt.
 
 ### Registrierung
+Wird beim Prototypen nicht angeboten.
 
 ### Login
-
+Es ist ein Hard codierter User (name: nik, passwort: password) im Backend hinterlegt gegen den getestet wird. Ist der Login erfolgreich wird ein Token zurück gelifert.
 
 ### OAuth
 Nicht im Prototypen vorhanden.
