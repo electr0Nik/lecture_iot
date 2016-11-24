@@ -12,8 +12,6 @@
     <ion-title>Daylight Buzzer Main</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
   <h3>Daylight Buzzer!</h3>
   <div>
@@ -27,7 +25,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let alarm of alarms" (click)="navigateToAddCreateView($event, alarm)">
-          <input type="hidden" value="{{alarm.id}} - {{alarm.uuid}}"/>
+          <input type="hidden" value="{{alarm.id}} - {{alarm.uuid}}" />
           <td>
             <button ion-button icon-only *ngIf="alarm.active" (click)="updateAlarmState(alarm); $event.stopPropagation()">
                 <ion-icon name="notifications"></ion-icon>
@@ -50,19 +48,25 @@
       </tbody>
     </table>
     <div>
-        <p>
-            Hier könnnte Ihre Werbung stehen.
-        </p>
+      <p>
+        Hier könnnte Ihre Werbung stehen.
+      </p>
     </div>
     <div>
-        <button ion-button icon-left (click)="navigateToAddCreateView($event)">
+      <button ion-button icon-left (click)="navigateToAddCreateView($event)">
             <ion-icon name="add-circle"></ion-icon>
             Add / Create
         </button>
-        <button ion-button icon-left (click)="navigateToAdminView($event)">
+      <button ion-button icon-left (click)="navigateToAdminView($event)">
             <ion-icon name="game-controller-a"></ion-icon>
             Admin View
         </button>
+    </div>
+    <div>
+      <h2>Sie sind eingelogged!</h2>
+      <button ion-button (click)="logout()">
+        Logout!!
+      </button>
     </div>
   </div>
 </ion-content>

@@ -10,6 +10,7 @@ import { Alarm } from '../../classes/alarm.class';
 
 // custom service 
 import { AlarmOverviewService } from "../../providers/alarm.overview.service";
+import { AuthService } from "../../providers/auth.service";
 
 /*
   Generated class for the MainOverview page.
@@ -24,7 +25,7 @@ import { AlarmOverviewService } from "../../providers/alarm.overview.service";
 export class MainOverviewPage {
   alarms: Array<Alarm>;
 
-  constructor(private navCtrl: NavController, private alarmOverviewService: AlarmOverviewService) {
+  constructor(private navCtrl: NavController, private alarmOverviewService: AlarmOverviewService, private authService: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -56,6 +57,10 @@ export class MainOverviewPage {
     this.alarmOverviewService.updateAlarm(alarm);
   }
 
+  // simple logout call
+  logout() {
+    this.authService.logout();
+  }
 
   // navigation
   /**

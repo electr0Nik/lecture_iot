@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { Http } from '@angular/http'
+// import { Http } from '@angular/http'
 
 // custom components / pages
 import { MainOverviewPage } from '../pages/main-overview/main-overview';
@@ -13,6 +13,7 @@ import { RegisterViewPage } from '../pages/register-view/register-view';
 // custom providers / serrvices
 import { AlarmOverviewService } from '../providers/alarm.overview.service'
 import { AlarmOverviewServiceMocks } from '../providers/mocks/alarm.overview.service.mocks'
+import { AuthService } from '../providers/auth.service'
 
 @NgModule({
   declarations: [
@@ -41,10 +42,12 @@ import { AlarmOverviewServiceMocks } from '../providers/mocks/alarm.overview.ser
 
     // use factory to avoid changing from mocks to real services in components
     {
-      provide: AlarmOverviewService,
-      useFactory: (USE_MOCKS, http) => USE_MOCKS ? new AlarmOverviewServiceMocks() : new AlarmOverviewService(http),
-      deps: ['USE_MOCKS', Http]
-    }
+      provide: AlarmOverviewService, useClass: AlarmOverviewServiceMocks
+      // avoid using factory yet, since build will fail with: Function calls are not supported
+      // useFactory: (USE_MOCKS, http) => USE_MOCKS ? new AlarmOverviewServiceMocks() : new AlarmOverviewService(http),
+      // deps: ['USE_MOCKS', Http]
+    },
+    AuthService
   ]
 })
 export class AppModule { }

@@ -13,22 +13,46 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
-  <div *ngIf="!authenticated">
-    <button ion-button>
-      Login
-    </button>
-
-    <button ion-button>
-      Register
-    </button>
+  <div *ngIf="!isAuthenticated">
+    <div>
+      <h3>Login</h3>
+      <p>To use the Administration Page you have to Log In first!</p>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input [(ngModel)]="user.name" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button (click)="login(user)">
+        Login
+      </button>
+    </div>
+    <div>
+      <p>No user yet? You can register for free :-)</p>
+      <p>(not supported, yet!)</p>
+      <button ion-button (click)="navigateToRegister($event)">
+        Register
+      </button>
+    </div>
   </div>
-  <div *ngIf="authenticated">
-    WOHOOO
+  <div *ngIf="isAuthenticated">
+    <h3>Simple Configuration</h3>
+    <p>
+      To allow controlling the lightify lightbulb you have to add your device to the allowed devices
+    </p>
+    <div>
+      <h4>Device Information</h4>
+      <p>{{device.cordova}} : {{device.model}} : {{device.platform}} : {{device.uuid}}</p>
+      <button ion-button (click)="addDevice()">
+        Add device
+      </button>
+    </div>
   </div>
-  
-
-  <button ion-button icon-left (click)="goBack()">
+  <button ion-button icon-left (click)="goBack($event)">
       <ion-icon name="arrow-round-back"></ion-icon>
       There's no place like home
   </button>

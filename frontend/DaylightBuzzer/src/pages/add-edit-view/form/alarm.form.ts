@@ -41,7 +41,7 @@ export class AlarmForm {
     private getDateAsStringFromInt(day: number): Array<string> {
         let days: Array<string> = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
         let returnValue: Array<string> = [];
-        returnValue.push(days[day]);
+        returnValue.push(days[day-1]);
         return returnValue;
     }
 

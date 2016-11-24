@@ -1,7 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Device } from 'ionic-native';
+
 
 import { User } from '../../classes/user.class';
+
+// component
+import { MainOverviewPage } from '../main-overview/main-overview'
+import { RegisterViewPage } from '../register-view/register-view'
+
+// service
+import { AuthService } from "../../providers/auth.service";
+
+
 
 /*
   Generated class for the AdminOverview page.
@@ -14,25 +25,59 @@ import { User } from '../../classes/user.class';
   templateUrl: 'admin-overview.html'
 })
 export class AdminOverviewPage {
-
-  constructor(public navCtrl: NavController) {
-    this.authenticate();
-  }
-
   user: User;
-  isAuthenticated: boolean;
+  isAuthenticated: boolean = false;
 
-  authenticate(): void {
-    // todo .. autenticate user
-    this.isAuthenticated = this.user !== null;
+  device = new Device();
+
+  constructor(public navCtrl: NavController, private authService: AuthService) {
+    this.user = new User();
+    this.isAuthenticated = this.authService.isLoggedIn;
   }
 
+  /**
+   * init when page is loaded
+   */
   ionViewDidLoad() {
     console.log('Hello AdminOverviewPage Page');
+    // todo .. autenticate user
+    // this.isAuthenticated = this.user !== null;
   }
 
-  goBack() {
-    this.navCtrl.pop();
+
+  /**
+   * login user with username and password
+   * return data from promise
+   * if data success; then authenticate
+   */
+  login(credentials: User) {
+    this.authService.login(credentials).then(data => {
+      if (data) {
+        this.isAuthenticated = true;
+      }
+    });
+  }
+
+  /**
+   * add device specific uuid to backend, to restrict calls to _our_ lightify bulb
+   */
+  addDevice(): void {
+//    this.backendService.addDevice(Device.device.uuid);
+  }
+
+
+  // routing 
+
+  //navigateToLogin(): void{
+  //  this.navCtrl.push(MainOverviewPage);
+  //}
+
+  navigateToRegister(): void {
+    this.navCtrl.push(RegisterViewPage);
+  }
+
+  goBack(event): void {
+    this.navCtrl.push(MainOverviewPage);
   }
 
 }
