@@ -15,7 +15,7 @@ app.get(groupURL, function (req, res) {
         url: baseURL + groupURL,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '163782-ZZsatexJ7QSlqtcdXa4q'
+            'Authorization': '163782-fanyXYgCpAVQD6Soamtm'
         }
     };
 
@@ -42,7 +42,7 @@ app.get(groupSetURL + '/:groupNumber', function (req, res) {
         url: baseURL + '/group/set?idx=' + groupNumber + '&onoff=0',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '163782-wE9u0flYvTWHyTmTreQ4'
+            'Authorization': '163782-fanyXYgCpAVQD6Soamtm'
         }
     };
 
