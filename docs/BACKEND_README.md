@@ -18,7 +18,7 @@ Insgesamt besteht das gesamte System aus drei Komponenten.
 ![Architektur](images/Architecture.png "Architektur")
 
 ### 1. Mobile App
-Das Frontend und seine Funktionalitäten werden in der ![Frontend_Readme.md](docs/FRONTEND_README.md "App Description") beschrieben <br>
+Das Frontend und seine Funktionalitäten werden in der ![Frontend_Readme.md](FRONTEND_README.md "App Description") beschrieben <br>
 
 ### 2. Server
 Der Server besteht aus der CloudFoundry Applikation und einem Filesystem. Um dem Ansatz eines MVP (minimum viable product) gerecht zu werden, wird an dieser Stelle nicht mit einer Datenbank gearbeitet.
