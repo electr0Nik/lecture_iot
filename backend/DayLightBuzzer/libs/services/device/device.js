@@ -66,5 +66,17 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
         }
     };
 
-    res.end();
+    function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var info = JSON.parse(body);
+            console.log(info);
+            res.json(body);
+            res.end();
+        } else {
+            res.json('Status: FAIL');
+            res.end();
+        }
+    }
+
+    request(options, callback);
 });
