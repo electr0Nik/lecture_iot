@@ -10,7 +10,7 @@ var lightifyUrl = 'https://eu.lightify-api.org/lightify/services';
 
 app.get('/device', function(req, res) {
     var options = {
-        url: lightifyUrl + '/devices',
+        url: lightifyUrl + '/devices/1',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': '163782-fanyXYgCpAVQD6Soamtm'
@@ -44,17 +44,15 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
     console.log(maxLight);
 
     var stateUrl;
-    if(state == 1) {
+    if(state == 'on') {
         stateUrl = "&onoff=1";
     } else {
         stateUrl = "&onoff=0";
     }
 
-    console.log(stateUrl);
-
     var colorUrl = "&color=" + color;
 
-    var intervalUrl = "&time=" + interval;
+    var intervalUrl = "&time=#" + interval;
 
     var maxLightUrl = "&ctemp=" + maxLight;
 
@@ -68,11 +66,12 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
 
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
-            var info = JSON.parse(body);
-            console.log(info);
-            res.json(body);
+            console.log("Res: " + body);
+            console.log("Res as String:" + JSON.stringify(body));
+            res.write(JSON.stringify(body));
             res.end();
         } else {
+            console.log(response.statusCode);
             res.json('Status: FAIL');
             res.end();
         }
