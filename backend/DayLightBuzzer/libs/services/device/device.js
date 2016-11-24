@@ -3,12 +3,15 @@ var bodyParser = require("body-parser");
 var request = require('request');
 var app = module.exports = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 
 var lightifyUrl = 'https://eu.lightify-api.org/lightify/services';
 
-app.get('/device', function(req, res) {
+app.get('/device', function (req, res) {
+
     var options = {
         url: lightifyUrl + '/devices/1',
         headers: {
@@ -44,7 +47,7 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
     console.log(maxLight);
 
     var stateUrl;
-    if(state == 'on') {
+    if (state == 'on') {
         stateUrl = "&onoff=1";
     } else {
         stateUrl = "&onoff=0";
@@ -56,26 +59,47 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
 
     var maxLightUrl = "&ctemp=" + maxLight;
 
-    var options = {
-        url: lightifyUrl + '/device/set?idx=1' + stateUrl + colorUrl + intervalUrl + maxLightUrl,
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': '163782-fanyXYgCpAVQD6Soamtm'
-        }
-    };
+    var url = 'http://localhost:6001/auth'
 
-    function callback(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log("Res: " + body);
-            console.log("Res as String:" + JSON.stringify(body));
-            res.write(JSON.stringify(body));
-            res.end();
+    var token;
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+
+        if (!error && response.statusCode === 200) {
+            console.log('print return body: ' + body) // Print the json response
+            console.log('print return body: ' + body.token) // Print the json response
+            token = body.token;
+
+            var options = {
+                url: lightifyUrl + '/device/set?idx=1' + stateUrl + colorUrl + intervalUrl + maxLightUrl,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            };
+
+            function callback(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log("Res: " + body);
+                    console.log("Res as String:" + JSON.stringify(body));
+                    res.write(JSON.stringify(body));
+                    res.end();
+                } else {
+                    console.log(response.statusCode);
+                    res.json('Status: FAIL');
+                    res.end();
+                }
+            }
+
+            request(options, callback);
         } else {
-            console.log(response.statusCode);
-            res.json('Status: FAIL');
-            res.end();
+            return res.status(403).send({
+                success: false,
+                msg: 'Authenticaton failed. No security token.'
+            });
         }
-    }
+    })
 
-    request(options, callback);
 });

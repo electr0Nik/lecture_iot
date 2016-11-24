@@ -20,7 +20,7 @@ var app = express();
 
 //define modules with services
 var login = require('./libs/services/login/login');
-var signUp = require('./libs/services/signup/signUp');
+var signUp = require('./libs/services/signup/signup');
 var group = require('./libs/services/group/group');
 var authorization = require('./libs/services/authorization/authorization');
 var device = require('./libs/services/device/device');

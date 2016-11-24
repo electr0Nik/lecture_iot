@@ -4,13 +4,15 @@ var bodyParser = require("body-parser");
 var fs = require("fs");
 var app = module.exports = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 
 var pathUser = './libs/files/user.json';
 
 app.get('/auth', function (req, res) {
-//function getAuthorizationCode(uid, email) {
+    //function getAuthorizationCode(uid, email) {
 
     //get uid, get email through parameters
     var uid = 2;
@@ -32,19 +34,22 @@ app.get('/auth', function (req, res) {
         json: {
             'username': name,
             'password': password,
-            'serialNumber':'OSR017B305B'
+            'serialNumber': 'OSR017B305B'
         }
     };
 
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Res: " + body);
-            console.log("Res as String:" + JSON.stringify(body));
-            res.write(JSON.stringify(body));
-            res.end();
+            let securityToken = body.securityToken
+            res.json({
+                success: true,
+                token: securityToken
+            });
         } else {
-            res.json('Status: FAIL');
-            res.end();
+            return res.status(403).send({
+                success: false,
+                msg: 'Authenticaton failed, device not registered.'
+            });
         }
     }
 
@@ -61,7 +66,7 @@ function userExists(path, uid, email) {
             break;
         }
     }
-    if(result === undefined || result === null) {
+    if (result === undefined || result === null) {
         result = JSON.stringify({});
     }
 
