@@ -67,3 +67,15 @@ Der User erhält den "Login erfolgreich" Bildschirm und kann auf die App zugreif
 Die notwendigen Dateien der App befinden sich im Ordner <i>libs</i>.
 Dieser ist aufgeteilt in den Ordner <i>files</i>, welche das Filesystem darstellen und
 den Ordner <i>services</i>, welche alle angeboteten Services beinhaltet.
+Die Services sind wie folgt unterteilt:
+Authorization - /auth - Generierung eines security Tokens für das Lightify:
+Device - /device - Getter für die Gerätedatei
+Device - /device/:state{on|off as String}/:color{Hexwert als String}/:interval{int als int}/:maxLight{int as int} - Sendet Daten an das Lightify
+Groups - /groups - Getter für die angelegten Gruppen im Lightify
+
+Noch nicht funktionafähig:
+Groups - /groups/set/:id - setzt das Licht der Gruppe auf aus
+SignUp - /signUp - verschiedene Funktionen zum einsetzen und auslesen von Usern in die JSON Dateien
+ErrorHandling - /error - noch keine Implementation
+LightSwitch - /on - Macht nur das Licht an - sendet keinen Request ab
+
