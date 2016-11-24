@@ -59,7 +59,7 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
 
     var maxLightUrl = "&ctemp=" + maxLight;
 
-    var url = 'http://localhost:6001/auth'
+    var url = 'http://localhost:6001/auth';
 
     var token;
     request({
@@ -68,8 +68,8 @@ app.get('/device/:state/:color/:interval/:maxLight', function (req, res) {
     }, function (error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            console.log('print return body: ' + body) // Print the json response
-            console.log('print return body: ' + body.token) // Print the json response
+            console.log('print return body: ' + body); // Print the json response
+            console.log('print return body: ' + body.token); // Print the json response
             token = body.token;
 
             var options = {
