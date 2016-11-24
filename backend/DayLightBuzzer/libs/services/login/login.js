@@ -43,8 +43,8 @@ app.post('/authenticate', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-    var _name = req.body.name
-    var _password = req.body.password
+    var _name = req.body.name;
+    var _password = req.body.password;
 
     // hard coding for prototype
     // expecting user with name: nik and password:geheim
@@ -54,7 +54,7 @@ app.post('/authenticate', function (req, res) {
             msg: 'Authenticaton failed, user not found.'
         });
     } else {
-        var token = '02ed6cc2-779e-4787-9a55-3c872875eaf4'
+        var token = '02ed6cc2-779e-4787-9a55-3c872875eaf4';
         res.json({
             success: true,
             token: token
@@ -78,11 +78,11 @@ app.post(triggerRoute, function (req, res) {
     /**
      * lightify params
      */
-    let color =  req.body.color;
-    let intervall =  req.body.intervall;
-    let maxLight =  req.body.maxLight;
-    let maxOpacity =  req.body.maxOpacity;
-    let deviceUuid =  req.body.deviceUuid;
+    var color =  req.body.color;
+    var intervall =  req.body.intervall;
+    var maxLight =  req.body.maxLight;
+    var maxOpacity =  req.body.maxOpacity;
+    var deviceUuid =  req.body.deviceUuid;
     console.log('c: ' + color + ' i : ' + intervall + ' : ' + 'm:' + maxLight + ' : d: ' + deviceUuid);
 
     if (deviceUuid !== 'niks_device') {
@@ -91,7 +91,7 @@ app.post(triggerRoute, function (req, res) {
             msg: 'Authenticaton failed, device not registered.'
         });
     } else {
-        var token = '02ed6cc2-779e-4787-9a55-3c872875eaf4'
+        var token = '02ed6cc2-779e-4787-9a55-3c872875eaf4';
         res.json({
             success: true,
             token: token
