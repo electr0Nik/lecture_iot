@@ -40,7 +40,7 @@ app.get('/auth', function (req, res) {
 
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
-            let securityToken = body.securityToken
+            var securityToken = body.securityToken
             res.json({
                 success: true,
                 token: securityToken
