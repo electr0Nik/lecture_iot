@@ -1,3 +1,7 @@
+##Project discontinued!##
+
+
+<br/><br/>
 # Daylight Buzzer
 Dieser App Prototyp entstand im Rahmen eines Hackathlons im Wahlfach: <i>Hackathlon IOT</i> im Studiengang Wirtschaftsinformatik (Master) an der Hochschule Reutlingen.<br/><br/>
 Ziel war es eine App zu schreiben, die das Ionic Framework zur Generierung der App verwendet und CloudFoundry mit Node-JS und Bluemix als Backend. Zusätzlich soll eine Interaktionen mit einem IoT fähigen Gerät statt finden, hierfür wurde [Osram Lightify](https://www.osram.de/osram_de/produkte/led-technologie/lightify/lightify-home/index.jsp) verwendet.<br/>
